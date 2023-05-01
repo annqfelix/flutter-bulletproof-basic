@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class TodoDetailPage extends StatefulWidget {
   static const routeName = 'todo/detail';
-  static const routePath = ':$kTaskIdParam';
-  static const kTaskIdParam = 'taskId';
+  static const routePath = ':$kTodoIdParam';
+  static const kTodoIdParam = 'todoId';
 
-  final String taskId;
+  final String todoId;
 
-  const TodoDetailPage({super.key, required this.taskId});
+  const TodoDetailPage({super.key, required this.todoId});
 
   @override
   State<TodoDetailPage> createState() => _TodoDetailPageState();

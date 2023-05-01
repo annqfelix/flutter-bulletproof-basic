@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 class NetworkAccessError extends DioError {
   String statusCode;
   @override
+  // ignore: overridden_fields
   String message;
   String code;
 

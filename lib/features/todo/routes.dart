@@ -13,8 +13,8 @@ GoRoute setupRoutes() {
         name: TodoDetailPage.routeName,
         path: TodoDetailPage.routePath,
         builder: (context, state) {
-          final taskId = state.pathParameters[TodoDetailPage.kTaskIdParam]!;
-          return TodoDetailPage(taskId: taskId);
+          final todoId = state.pathParameters[TodoDetailPage.kTodoIdParam]!;
+          return TodoDetailPage(todoId: todoId);
         },
       ),
     ],

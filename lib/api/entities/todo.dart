@@ -1,23 +1,22 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_collection/built_collection.dart';
 
 part 'todo.g.dart';
 
 abstract class Todo implements Built<Todo, TodoBuilder> {
-  static Serializer<Todo> get serializer => _$TodoSerializer;
+  static Serializer<Todo> get serializer => _$todoSerializer;
 
   int get id;
 
-  @nullable
-  int get age;
+  String get title;
 
-  @nullable
-  @BuiltValueField(wireName: 'first_name')
-  String get firstName;
+  bool get completed;
 
-  @nullable
-  BuiltList<String> get hobbies;
+  int get userId;
+
+  // use when transform field from snack_case to camelCase
+  // @BuiltValueField(wireName: 'first_name')
+  // String get firstName;
 
   Todo._();
   factory Todo([void Function(TodoBuilder) updates]) = _$Todo;
