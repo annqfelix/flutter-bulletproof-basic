@@ -1,0 +1,22 @@
+import 'package:flutter_bulletproof_basic/features/todo/pages/todo_detail_page.dart';
+import 'package:go_router/go_router.dart';
+
+import 'pages/index.dart';
+
+GoRoute setupRoutes() {
+  return GoRoute(
+    name: TodoListingPage.routeName,
+    path: TodoListingPage.routePath,
+    builder: (context, state) => const TodoListingPage(),
+    routes: [
+      GoRoute(
+        name: TodoDetailPage.routeName,
+        path: TodoDetailPage.routePath,
+        builder: (context, state) {
+          final taskId = state.pathParameters[TodoDetailPage.kTaskIdParam]!;
+          return TodoDetailPage(taskId: taskId);
+        },
+      ),
+    ],
+  );
+}
