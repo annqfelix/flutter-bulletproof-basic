@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_remoter/flutter_remoter.dart';
 
 import 'router.dart';
 
@@ -12,14 +13,25 @@ class RootApplication extends StatefulWidget {
 class _RootApplicationState extends State<RootApplication> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: rootRouter,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
+    return RemoterProvider(
+      client: RemoterClient(
+        options: RemoterOptions(
+          staleTime: 0,
+          cacheTime: 5 * 60 * 1000,
+          maxDelay: 3 * 60 * 1000,
+          maxRetries: 1,
+          retryOnMount: true,
         ),
-        useMaterial3: true,
+      ),
+      child: MaterialApp.router(
+        routerConfig: rootRouter,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.teal,
+          ),
+          useMaterial3: true,
+        ),
       ),
     );
   }

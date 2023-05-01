@@ -246,6 +246,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  flutter_remoter:
+    dependency: "direct main"
+    description:
+      name: flutter_remoter
+      sha256: a517c0983f6aa3283e9248be36824cb93016b788509fba035cfb80f3b880b0f2
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

@@ -17,6 +17,9 @@ class TodoApi {
     required String todoId,
   }) async {
     final response = await access.fetch('todos/$todoId');
+    if (response.data == null) {
+      throw Exception('todo not found.');
+    }
     return Todo.fromJson(response.data);
   }
 }
