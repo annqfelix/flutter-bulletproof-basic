@@ -60,11 +60,18 @@ class _TodoDetailPageState extends State<TodoDetailPage> {
             );
           }
 
-          final todoItem = snapshot.data;
+          final todoItem = snapshot.data!;
           return CustomScrollView(
             slivers: [
               SliverAppBar.medium(
-                title: Text(todoItem?.title ?? '<empty>'),
+                title: Text(
+                  todoItem.title,
+                  style: TextStyle(
+                    decoration: todoItem.completed
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
+                  ),
+                ),
                 centerTitle: false,
                 backgroundColor: Theme.of(context).colorScheme.primaryContainer,
               ),
